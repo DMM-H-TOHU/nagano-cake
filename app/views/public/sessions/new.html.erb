@@ -3,21 +3,38 @@
     <div class='col-md-11 offset-md-1'>
 
       <h2>ログイン</h2>
-      <h3>会員の方はこちらからログイン</h3>
+      <h3  class="border-bottom border-secondary mt-3 mb-3">会員の方はこちらからログイン</h3>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email, "メールアドレス" %><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-      </div>
 
-      <div class="field">
-        <%= f.label :password, "パスワード" %><%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-      </div>
+       <table width="80%" cellpadding="5">
+         <tr>
+           <td width="30%" class="text-right"><div class="field"><%= f.label :email, "メールアドレス" %></td>
+           <td width="70%"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %></div></td>
+         </tr>
+
+         <tr>
+           <td width="30%" class="text-right"><div class="field"><%= f.label :password, "パスワード" %></td>
+           <td width="70%"><%= f.password_field :password, autocomplete: "current-password", class: "form-control" %></div></td>
+         </tr>
+        </table>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "ログイン",　class: "btn btn-sm btn-success" %>
-  </div>
-<% end %>
+  <div class="row">
+    <div class="col-md-11 offset-md-1">
 
-<%= render "public/shared/links" %>
+      <div class="actions d-grid gap-2 col-1 mx-auto mt-3">
+        <%= f.submit "ログイン", class: 'btn btn-primary' %>
+      </div>
+      <% end %>
+
+
+      <h3 class="border-bottom border-secondary mt-5 mb-3">会員登録がお済みでない方</h3>
+      <%= render "public/shared/links" %>
+    </div>
+  </div>
+</div>
+
+
+
