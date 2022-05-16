@@ -1,0 +1,24 @@
+<h1>会員情報編集</h1>
+<%= form_with model:@customer do |f| %>
+
+  <label>氏名</label>
+    <%= f.text_field :family_name, autofocus: true, id:"family_name", placeholder:"氏名" %>
+    <%= f.text_field :first_name, autofocus: true, id:"first_name", placeholder:"氏名" %>
+
+  <label>フリガナ</label>
+    <%= f.text_field :family_name_kana, autofocus: true, id:"family_name_kana", placeholder:"フリガナ" %>
+    <%= f.text_field :first_name_kana, autofocus: true, id:"first_name_kana", placeholder:"フリガナ" %>
+
+  <label>郵便番号</label>
+    <%= f.text_field :zipcode, autofocus: true, id:"zipcode", placeholder:"郵便番号" %>
+
+  <label>住所</label>
+    <%= f.text_field :address, autofocus: true, id:"address", placeholder:"住所" %>
+
+  <label>電話番号</label>
+    <%= f.text_field :telephone_number, autofocus: true, id:"telephon_number", placeholder:"電話番号" %>
+
+  <label>メールアドレス</label>
+    <%= f.text_field :email, autofocus: true, id:"email", placeholder:"メールアドレス" %>
+
+  <%= f.submit "編集内容を保存" %><%#退会するボタンここに%>
