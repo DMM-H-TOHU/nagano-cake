@@ -1,16 +1,24 @@
-<h2>管理者ログイン</h2>
+<div class='container px-3 px-sm-0'>
+<h3>管理者ログイン</h3>
+</div>
+
+<div class='container px-5 px-sm-0 mt-5'>
+  <div class="row">
+    <div class='col-md-11 offset-md-1'>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password, "パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+<table width="80%" cellpadding="5">
+<tr>
+      <td width="30%" class="text-center"><div class="field"><%= f.label :email, "メールアドレス" %></td>
+      <td width="70%"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %></td>
+</tr>
+<tr>
+      <td width="30%" class="text-center"><%= f.label :password, "パスワード" %></td>
+      <td width="70%"><%= f.password_field :password, autocomplete: "current-password", class: "form-control" %></td>
+</tr>
 
+</table>
   <!--<% if devise_mapping.rememberable? %>-->
   <!--  <div class="field">-->
   <!--    <%= f.check_box :remember_me %>-->
@@ -18,9 +26,19 @@
   <!--  </div>-->
   <!--<% end %>-->
 
-  <div class="actions">
-    <%= f.submit "ログイン" %>
+<div class="form-group mt-5">
+  <div class="col-xs-offset-2 col-xs-10">
+    <div class="actions">
+      <p class="text-center"><%= f.submit "ログイン", class: 'button_custom btn btn-primary center-block ' %></p>
+    </div>
   </div>
+</div>
+
 <% end %>
-<%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+
+  <p class="text-center"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></p>
 <%= render "admin/shared/links" %>
+
+    </div>
+  </div>
+</div>
