@@ -7,4 +7,9 @@ class Customer < ApplicationRecord
   has_many :cart_items
   has_many :orders
   has_many :send_addresses
+
+  # is_deletedがfalseならtrueを返すようにしている
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
 end
