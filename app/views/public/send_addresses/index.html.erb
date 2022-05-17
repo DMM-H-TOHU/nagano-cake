@@ -6,12 +6,69 @@
     </div>
   </div>
 
-  <%= form_with model: @send_address, url: 'public_send_addresses' do |f| %>
+  <%= form_with model: @send_address, url: 'send_addresses' do |f| %>
 
   <div class="row mb-3 field ml-5 mr-5">
 
-    <%= f.label :email, "メールアドレス", class: "col-3 col-form-label text-center" %>
+    <%= f.label :zipcode, "郵便番号(ハイフンなし)", class: "col-3 col-form-label text-center" %>
 
     <div class="col-8">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      <%= f.text_field :zipcode, class: "form-control" %>
     </div>
+  </div>
+
+   <div class="row mb-3 field ml-5 mr-5">
+
+    <%= f.label :address, "住所", class: "col-3 col-form-label text-center" %>
+
+    <div class="col-8">
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
+  </div>
+
+   <div class="row mb-3 field ml-5 mr-5">
+
+    <%= f.label :name, "宛名", class: "col-3 col-form-label text-center" %>
+
+    <div class="col-8">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+  </div>
+
+  <div class="row mb-3 field ml-5 mr-5">
+    <div class="col-6 offset-6">
+      <%= f.submit "新規登録", class: 'btn btn-success btn-lg' %><% end %>
+    </div>
+  </div>
+
+  <div class="row ml-5 mr-5 mt-5">
+    <div class="col">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+        <tr>
+          <th width="20%">郵便番号</th>
+          <th width="30%">住所</th>
+          <th width="20%">宛名</th>
+          <th width="30%"></th>
+        </tr>
+        </thead>
+
+          <% @send_addresses.each do |send_address| %>
+        <tr>
+          <td><%= send_address.zipcode %></td>
+          <td><%= send_address.address %></td>
+          <td><%= send_address.name %></td>
+          <td class="text-center">
+            <%= link_to '編集する', edit_public_send_address_path(send_address), class: "btn btn-sm btn-success edit_public_send_address_path_#{send_address.id}" %>
+            <%= link_to '削除する', public_send_address_path(send_address), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger send_address_path_#{send_address.id}"%>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+

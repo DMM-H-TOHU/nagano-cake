@@ -1,0 +1,45 @@
+<div class='container px-5'>
+
+  <div class="row">
+    <div class='col'>
+      <h3 class="border-bottom border-secondary mt-3 mb-3 pb-1">配送先編集</h3>
+    </div>
+  </div>
+
+  <%= form_with model: @send_address, url: public_send_address_path(@send_address) do |f| %>
+
+  <div class="row mb-3 field ml-5 mr-5">
+
+    <%= f.label :zipcode, "郵便番号(ハイフンなし)", class: "col-3 col-form-label text-center" %>
+
+    <div class="col-8">
+      <%= f.text_field :zipcode, class: "form-control" %>
+    </div>
+  </div>
+
+   <div class="row mb-3 field ml-5 mr-5">
+
+    <%= f.label :address, "住所", class: "col-3 col-form-label text-center" %>
+
+    <div class="col-8">
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
+  </div>
+
+   <div class="row mb-3 field ml-5 mr-5">
+
+    <%= f.label :name, "宛名", class: "col-3 col-form-label text-center" %>
+
+    <div class="col-8">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+  </div>
+
+  <div class="row mb-3 field ml-5 mr-5">
+    <div class="col-7 offset-5">
+      <%= f.submit "変更内容を保存", class: 'btn btn-success btn-lg' %><% end %>
+    </div>
+  </div>
+
+</div>
