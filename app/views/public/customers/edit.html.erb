@@ -1,5 +1,5 @@
 <h1>会員情報編集</h1>
-<%= form_with model: @customer, url: edit_public_customer_path(@customer), method: :patch do |f| %>
+<%= form_with model: @customer, url: public_customer_path(@customer), method: :patch do |f| %>
 
   <table>
     <tr>
@@ -10,7 +10,7 @@
     <tr>
       <td>フリガナ</td>
       <td><div class="field"><%= f.text_field :familly_name_kana, autofocus: true, id:"familly_name_kana", placeholder:"フリガナ" %></div></td>
-      <td><div class="field"><%= f.text_field :first_name, autofocus: true, id:"first_name_kana", placeholder:"氏名" %></div></td>
+      <td><div class="field"><%= f.text_field :first_name_kana, autofocus: true, id:"first_name_kana", placeholder:"フリガナ" %></div></td>
     </tr>
     <tr>
       <td>郵便番号</td>
