@@ -12,9 +12,9 @@
   <h4>税抜価格</h4>
     <%= f.text_field :price %>
   <h4>販売ステータス</h4>
-  　　<%= f.radio_button :is_status, :male %>
+  　　<%= f.radio_button :is_status, :true %>
   　　<%= f.label :is_status, "販売中" %>
-  　　<%= f.radio_button :is_status, :female %>
+  　　<%= f.radio_button :is_status, :false %>
   　　<%= f.label :is_status, "販売停止中" %>
   <h4>
     <%= f.submit '新規登録' %>
