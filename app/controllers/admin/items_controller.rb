@@ -2,7 +2,6 @@ class Admin::ItemsController < ApplicationController
 
   def new
     @item = Item.new
-   # @genre = Genre.find_by(params[:id])
   end
 
   def index
