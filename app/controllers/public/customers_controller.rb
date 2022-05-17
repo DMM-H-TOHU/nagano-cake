@@ -11,25 +11,25 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     @customer.update(customer_params)
-    redirect_to public_customer_path
+    redirect_to public_customers_my_page_path
   end
 
   def is_deleted
   end
 
   def withdraw
-    @customer = Customer.find(current_customer)
+    @customer = Customer.find(current_customer.id)
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     @customer.update(is_deleted: true)
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+    redirect_to new_customer_registration
   end
 
   private
 
   def customer_params
-    params.require(:customer).permit(:family_name, :first_name, :family_name_kana, :first_name_kana,
+    params.require(:customer).permit(:familly_name, :first_name, :familly_name_kana, :first_name_kana,
     :zipcode, :address, :telephone_number, :email)
   end
 end
