@@ -25,24 +25,24 @@
 
 <% @items.each do |item| %>
   <div>
-    <th>
-      <tr>
+    <tr>
+      <td>
         <%= item.id %>
-      </tr>
-      <tr>
+      </td>
+      <td>
         <%= link_to admin_item_path do %>
           <%= item.name %>
         <% end %>
-      </tr>
-      <tr>
+      </td>
+      <td>
         <%= item.price %>
-      </tr>
-      <tr>
-        <%= item.genre_id.name %>
-      </tr>
-      <tr>
+      </td>
+      <td>
+        <%= item.genre.name %>
+      </td>
+      <td>
         <%= item.is_status %>
-      </tr>
-    </th>
+      </td>
+    </tr>
   </div>
-  <% end %>
+<% end %>

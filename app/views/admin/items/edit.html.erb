@@ -1,2 +1,13 @@
 <h1>edit</h1>
-<%= f.check_box :is_status, [['販売中', true], ['販売停止', false]] %> 
+
+
+ @item = Item.find(params[:id])
+    @items = @item.
+    @item = Item.new(item_params)
+    #@item.id = params[id: @item.id]
+    @item.save
+      redirect_to admin_item_path
+      
+      
+      @post = Post.find(params[:post_id])
+    @comment = @post.comments.new (comment_params)
