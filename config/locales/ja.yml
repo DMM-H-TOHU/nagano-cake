@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        send_address:
+          attributes:
+            zipcode: "郵便番号"
+            name: "宛名"
+            address: "住所"
