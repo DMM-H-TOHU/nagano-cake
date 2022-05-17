@@ -14,8 +14,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
  namespace :admin do
-    get '/' => 'admin/homes#top'
-    patch '/order_details/:id' => 'admin/order_details#update'
+    get '/' => 'homes#top'
+    patch '/order_details/:id' => 'order_details#update'
     resources :customers, only: [:index, :show, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
