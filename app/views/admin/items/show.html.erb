@@ -1,6 +1,12 @@
 <h2>商品詳細</h2>
 
 <div>
-  <%= image_tag @item.get_image %>
-  <p>商品名:<%= @item.name</p>
+  <%= image_tag @item.get_image, size: '200x200'  %>
+  <p>商品名:<%= @item.name %></p>
+  <p>商品説明:<%= @item.introduction %></p>
+  <p>ジャンル:<%= @item.genre_id %></p>
+  <p>税込価格<br>(税抜価格)<%= @item.price %></p>
+  <p>販売ステータス <% if @item.is_status == true %>販売中
+      	<% elsif @item.is_status == false %>販売停止中
+      	<% end %></p>
 </div>
