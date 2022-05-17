@@ -1,6 +1,6 @@
 <h1>マイページ</h1>
 <h4>登録情報</h4>
-<%= link_to '編集する', edit_public_customer_path %>
+<%= link_to '編集する', edit_public_customer_path(current_customer) %>
 
   <table>
     <tbody>
@@ -32,6 +32,6 @@
 
     </tbody>
   </table>
-
 <%= link_to public_customers_is_deleted_path do %>退会する <% end %>
+
 
