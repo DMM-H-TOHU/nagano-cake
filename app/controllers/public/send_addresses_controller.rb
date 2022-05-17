@@ -1,4 +1,5 @@
 class Public::SendAddressesController < ApplicationController
+  before_action :authenticate_customer!
 
   def index
     @send_address = SendAddress.new
