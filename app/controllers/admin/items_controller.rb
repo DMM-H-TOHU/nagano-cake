@@ -2,6 +2,7 @@ class Admin::ItemsController < ApplicationController
 
   def new
     @item = Item.new
+   # @genre = Genre.find_by(params[:id])
   end
 
   def index
@@ -14,12 +15,11 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
+     @item.save
       redirect_to admin_item_path(@item.id)
-    else
-      render "new"
-    end
-
+    #else
+      #render "new"
+    #end
   end
 
   private
