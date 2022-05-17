@@ -6,7 +6,20 @@
     </div>
   </div>
 
-  <%= form_with model: @send_address, url: 'send_addresses' do |f| %>
+  <div class="row">
+    <div class="col">
+      <% if @send_address.errors.any? %>
+      <%= @send_address.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @send_address.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+
+  <%= form_with model: @send_address, url: public_send_addresses_path do |f| %>
 
   <div class="row mb-3 field ml-5 mr-5">
 

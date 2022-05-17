@@ -24,7 +24,6 @@ class Public::SendAddressesController < ApplicationController
     else
     @customer = current_customer
     @send_addresses = @customer.send_addresses
-    @send_address = SendAddress.new(sendaddress_params)
       render 'index'
     end
   end
@@ -34,7 +33,6 @@ class Public::SendAddressesController < ApplicationController
     if @send_address.update(sendaddress_params)
       redirect_to public_send_addresses_path, notice: "配送先を更新しました"
     else
-      @send_address = SendAddress.find(params[:id])
       render "edit"
     end
   end
