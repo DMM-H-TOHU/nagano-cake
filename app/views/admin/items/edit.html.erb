@@ -1,0 +1,13 @@
+<h1>edit</h1>
+
+
+ @item = Item.find(params[:id])
+    @items = @item.
+    @item = Item.new(item_params)
+    #@item.id = params[id: @item.id]
+    @item.save
+      redirect_to admin_item_path
+      
+      
+      @post = Post.find(params[:post_id])
+    @comment = @post.comments.new (comment_params)
