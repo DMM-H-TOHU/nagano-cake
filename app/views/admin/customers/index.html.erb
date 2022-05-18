@@ -15,14 +15,14 @@
         <td><%= customer.id%></td>
         <td><%= customer.familly_name%><%= customer.first_name%></td>
         <td><%= customer.email%></td>
-        
-        <td><% if customer.is_deleted == '有効' %>
-        <%= customer.is_deleted%>
+
+        <td><% if customer.is_deleted == true %>
+        退会済み
         <%else%>
-        退会
+      　有効
         <%end%>
         </td>
-        
+
       </tr>
   <%end%>
     </table>
