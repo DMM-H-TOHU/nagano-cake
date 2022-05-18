@@ -1,6 +1,7 @@
 <h4>会員詳細</h4>
 
-<% form_with model: @cudtomers do |customers| %>
+<% form_with model: @cudtomer do |customer| %>
+<% customer.family_name.first_name %>
 <%end%>
 
 <%=link_to "編集する"%>
