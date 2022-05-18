@@ -4,7 +4,7 @@
         <h2 class="head-line title_h2">商品新規登録</h2>
         <!-- ここからエラー文 -->
         <% if @item.errors.any? %>
-          <%= @item.errors.count %>件のエラーが発生しました!
+          <%= @item.errors.count %>件のエラーが発生しました!!!
           <ul>
             <% @item.errors.full_messages.each do |message| %>
               <li><%= message %></li>
