@@ -1,0 +1,28 @@
+<h4>注文履歴一覧</h4>
+
+<div class="col-md-8">
+  <div class="mx-auto">
+  <table class="table">
+    <thead class="table-secondary">
+      <tr>
+        <th>購入日時</th>
+        <th>購入者</th>
+        <th>注文個数</th>
+        <th>注文ステータス</th>
+      </tr>
+    </thead>
+  </div>
+  
+  <% @orders.each do |order| %>
+      <tr>
+        <td><% link_to "order.created_at", customer_id %>注文日時</td>
+        <td><% customer.family_name.first_name %>購入者名</td>
+        <td><% order_details.amount %>注文数</td>
+        <td><% orders.order_status %>注文ステータス</td>
+      </tr>
+  </table>
+  <% end %>
+</div>
+<%= paginate @histories %>
+
+
