@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <h2 class="head-line title_h2 text-center">商品新規登録</h2>
-      
+
       <!-- ここからエラー文 -->
       <% if @item.errors.any? %>
         <%= @item.errors.count %>件のエラーが発生しました
@@ -13,7 +13,6 @@
         </ul>
       <% end %>
 
-      <!--ここから登録画面--
       <%= form_with model: @item, url:'/admin/items', method: :post do |f| %>
         <h4>商品画像</h4>
           <%= f.file_field :image, accept:"image/*" %>
