@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    attributes:
+      send_address:
+        zipcode: 郵便番号
+        name: 宛名
+        address: 住所
+      customer:
+        email: メールアドレス
+        first_name: 名前
+        familly_name: 名字
+        first_name_kana: 名前(フリガナ)
+        familly_name_kana: 名字(フリガナ)
+        address: 住所
+        telephone_number: 電話番号
+        zipcode: 郵便番号
+        password: パスワード
+      cart_item:
+        amount: 数量
+      genre:
+        name: ジャンル名
+      item:
+        name: 商品名
+        introduction: 商品説明
+        price: 税抜価格
+      order:
+        zipcode: 郵便番号
+        address: 住所
+        name: 宛名
