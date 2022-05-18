@@ -2,6 +2,14 @@
   <div class="row">
     <div class='col'>
       <h2>会員情報編集</h1></h2>
+      <% if @customer.errors.any? %>
+        <%= @customer.errors.count %>件のエラーが発生しました。
+        <ul>
+          <% @customer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <%= form_with model: @customer, url: public_customer_path(@customer), method: :patch do |f| %>
       <table>
         <tr>
@@ -17,18 +25,21 @@
         <tr>
           <td>郵便番号</td>
           <td><div class="field"><%= f.text_field :zipcode, autofocus: true, id:"zipcode", placeholder:"郵便番号" %></div></td>
+          <td></td>
         </tr>
         <tr>
           <td>住所</td>
-          <td><div class="field"><%= f.text_field :address, autofocus: true, id:"address", placeholder:"住所" %></div></td>
+          <td colspan="2"><div class="field"><%= f.text_field :address, autofocus: true, id:"address", placeholder:"住所" %></div></td>
         </tr>
         <tr>
           <td>電話番号</td>
           <td><div class="field"><%= f.text_field :telephone_number, autofocus: true, id:"telephon_number", placeholder:"電話番号" %></div></td>
+          <td></td>
         </tr>
         <tr>
           <td>メールアドレス</td>
           <td><div class="field"><%= f.text_field :email, autofocus: true, id:"email", placeholder:"メールアドレス" %></div></td>
+          <td></td>
         </tr>
       </table>
       <%= f.submit "編集内容を保存", class: "btn btn-success btn-sm" %><%= link_to '退会する', public_customers_is_deleted_path, class: "btn btn-danger btn-sm" %>

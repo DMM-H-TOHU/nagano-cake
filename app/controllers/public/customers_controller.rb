@@ -10,8 +10,11 @@ class Public::CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(params[:id])
-    @customer.update(customer_params)
-    redirect_to public_customers_my_page_path
+    if @customer.update(customer_params)
+     redirect_to public_customers_my_page_path
+   else
+     render :edit
+   end
   end
 
   def is_deleted
