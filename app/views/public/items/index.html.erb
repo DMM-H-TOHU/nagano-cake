@@ -1,13 +1,36 @@
+<div class="container">
+  <div class="row">
 
-<h1>商品一覧</h1><p>(全x件)</p><%#何件かカウントする%>
+    <div class="col-4">
+      <table class="table text-center">
+        <thead class="table-light"><th>ジャンル検索</th></thead>
+        <% @genres.each do |genre| %>
+          <tr>
+            <td><%= genre.name %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
 
-<% @items.each do |item| %>
-<div>
-  <%= link_to public_item_path(item.id) do %>
-    <%= image_tag item.get_image %><%#商品画像%>
-  <% end %>
-  <p><%= item.name %></p><%#商品名%>
-  <p><%= item.price %></p><%#商品価格%>
+    <div class="col-8 col-lg-4">
+      <div class="mt-3 mb-3"><h2>商品一覧</h2><p>(全<%= @items.count %>件)</p></div>
+
+      <div class="card-group" style="width:20rem">
+      <% @items.each do |item| %>
+      <div class="card">
+        <%= link_to public_item_path(item.id) do %>
+          <%= image_tag item.get_image, class: "card-img-top" %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= item.name %></h5>
+          <p class="card-text">税抜価格：<%= item.price %>円</p>
+      </div>
+      <% end %>
+      </div>
+
+    </div>
+
+  </div>
 </div>
-<% end %>
+
 <%= paginate @items %>
