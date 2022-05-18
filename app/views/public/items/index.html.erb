@@ -1,4 +1,12 @@
-<h1>商品一覧</h1><p>(全<%= @item.count %>件)</p>
-<table>
+<h1>商品一覧</h1><p>(全x件)</p><%#何件かカウントする%>
 
-</table>
+<% @items.each do |item| %>
+<div>
+  <%= link_to public_item_path(item.id) do %>
+    <%= image_tag item.get_image %><%#商品画像%>
+  <% end %>
+  <p><%= item.name %></p><%#商品名%>
+  <p><%= item.price %></p><%#商品価格%>
+</div>
+<% end %>
+<%= paginate @items %>
