@@ -1,11 +1,10 @@
 <div class="container">
   <div class="row">
-
       <div class="col offset-1">
         <h2 class="head-line title_h2">商品新規登録</h2>
         <!-- ここからエラー文 -->
         <% if @item.errors.any? %>
-          <%= @item.errors.count %>件のエラーが発生しました
+          <%= @item.errors.count %>件のエラーが発生しました!!!
           <ul>
             <% @item.errors.full_messages.each do |message| %>
               <li><%= message %></li>
@@ -46,16 +45,9 @@
         <%= f.label :is_status, "販売停止中" %>
       </div>
       <div>
-        <%= f.submit '新規登録' %>
+        <%= f.submit "新規登録" %>
       </div>
-
       <% end %>
     </div>
   </div>
 </div>
-
-
-
-
-
-
