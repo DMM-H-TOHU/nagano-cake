@@ -1,8 +1,26 @@
 <h4>会員詳細</h4>
 
-<% form_with model: @cudtomer do |customer| %>
-<% customer.family_name.first_name %>
-<%end%>
+<table>
+  <div>
+    <tr><td>会員ID</td><td>   </td><td><%= @customer.id %></td></tr>
+    <tr><td>氏名</td><td>   </td><td><%= @customer.familly_name %><%= @customer.first_name %></td></tr>
+    <tr><td>フリガナ</td><td>   </td><td><%= @customer.familly_name_kana %><%= @customer.first_name_kana %></td></tr>
+    <tr><td>郵便番号</td><td>   </td><td><%= @customer.zipcode %></td></tr>
+    <tr><td>住所</td><td>   </td><td><%= @customer.address %></td></tr>
+    <tr><td>電話番号</td><td>   </td><td><%= @customer.telephone_number %></td></tr>
+    <tr><td>メールアドレス</td><td>   </td><td><%= @customer.email %></td></tr>
+    <tr><td>会員ステータス</td><td>   </td><td><%= @customer.is_deleted %></td></tr>
+  </div>
+</table>
 
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <%=link_to "編集する"%>
 <%=link_to "注文履歴一覧を見る"%>
