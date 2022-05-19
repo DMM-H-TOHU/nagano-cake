@@ -4,6 +4,7 @@ class Public::HomesController < ApplicationController
     @genres = Genre.all
     @items = Item.all
     @items = Item.all.order(created_at: :desc).limit(4)
+    @random_image = rand(3)
   end
 
   def about
