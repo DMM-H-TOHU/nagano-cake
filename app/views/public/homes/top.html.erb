@@ -14,7 +14,16 @@
 
     <div class="col-10">
       <div class="card text-white">
-      <%= image_tag 'homes3.jpg', size:"300x500", class: 'card-img' %>
+
+        <% if @random_image == 0 %>
+          <%= image_tag 'about.jpg', size:"300x500", class: 'card-img' %>
+        <% elsif @random_image == 1 %>
+          <%= image_tag 'homes.jpg', size:"300x500", class: 'card-img' %>
+        <% elsif @random_image == 2 %>
+          <%= image_tag 'homes2.jpg', size:"300x500", class: 'card-img' %>
+        <% else %>
+          <%= image_tag 'homes3.jpg', size:"300x500", class: 'card-img' %>
+        <% end %>
         <div class="card-img-overlay shadow-lg">
           <div class="bg-transparent">
           <h4 class="catd-title mt-5 mb-5 text-center display-4"><br>ようこそ、ながのCAKEへ</h4>
