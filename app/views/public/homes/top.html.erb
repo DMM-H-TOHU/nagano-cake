@@ -13,7 +13,15 @@
     </div>
 
     <div class="col-10">
-      <%= image_tag 'about.jpg', class: 'rounded' %>
+      <div class="card text-white">
+      <%= image_tag 'about.jpg', size:"300x500", class: 'card-img' %>
+        <div class="card-img-overlay">
+          <div class="bg-transparent">
+          <h4 class="catd-title mt-5 mb-5 text-center display-4"><br>ようこそ、ながのCAKEへ</h4>
+          <p class="card-text text-center mt-5 h4">このサイトは、ケーキ販売のECサイトになります。<br>会員でない方も商品の閲覧はできますが、<br>購入には会員登録が必要になります。</p>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -27,9 +35,9 @@
     <% @items.each do |item| %>
       <div class="col">
         <div class ="card h-100">
-          <%= image_tag item.get_image, class: "card-img-top" %>
+          <%= image_tag item.get_image, size: "150x150", class: "card-img-top" %>
           <div class="card-body">
-            <h5 class="card-title"><%= item.name %></h5>
+            <h6 class="card-title"><%= item.name %></h6>
             <p class="card-text">税抜価格： <%= item.price %>円</p>
             <%= link_to public_item_path(item) do %> <button type="button" class="btn btn-primary">詳細ページへ</button><% end %>
           </div>
