@@ -17,7 +17,10 @@
     <tr><td>メールアドレス</td>
         <td><%= @customer.email %></td></tr>
     <tr><td>会員ステータス</td>
-        <td><%= @customer.is_deleted %></td></tr>
+        <td><% if @customer.is_deleted == true %>退会済み
+            <%else%>有効
+            <%end%></td></tr>
+
   </div>
 </table>
 <br>
