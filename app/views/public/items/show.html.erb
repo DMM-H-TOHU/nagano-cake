@@ -11,8 +11,10 @@
       </table>
     </div>
 
-    <div class="col-4 card h-100">
-      <%= image_tag @item.get_image %><%#商品画像%>
+    <div class="col-4">
+      <div class="card">
+        <%= image_tag @item.get_image, class:"card-img" %><%#商品画像%>
+      </div>
     </div>
     <div class="col-6">
       <p><%= @item.name %></p><%#商品名%>

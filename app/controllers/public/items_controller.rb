@@ -10,5 +10,4 @@ class Public::ItemsController < ApplicationController
     @genres = Genre.all
   end
 
-
 end
