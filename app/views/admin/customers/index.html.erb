@@ -1,16 +1,16 @@
  <div class="row">
-   <div class="col-10"><h4>会員一覧</h4></div>
+   <div class="offset-2"><h4>会員一覧</h4></div>
  </div>
 
 
     <div class="row">
-    <div class="col-lg-8 offset-2">
+    <div class="col-lg-8 offset-2 mt-3">
     <table class="table">
       <thead class="table-secondary">
-        <tr class="text-center">
-          <th width="10%">会員ID</th>
-          <th width="40%">氏名</th>
-          <th width="40%">メールアドレス</th>
+        <tr class="text-left">
+          <th width="20%">会員ID</th>
+          <th width="30%">氏名</th>
+          <th width="30%">メールアドレス</th>
           <th width="20%">ステータス</th>
         </tr>
       </thead>
@@ -28,9 +28,9 @@
         <td><%= customer.email%></td>
 
         <td><% if customer.is_deleted == true %>
-            退会済み
+            <p class="text-secondary"><strong>退会済み</strong></p>
             <%else%>
-      　     有効
+      　     <p class="text-success"> <strong>有効</strong></p>
             <%end%>
         </td>
       </tr>
