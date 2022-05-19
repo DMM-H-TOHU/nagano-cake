@@ -1,11 +1,29 @@
-<h2>商品詳細</h2>
+<div class="container">
+  <div class="row">
+      <div class="col">
+        <h2 class="col-3 head-line title_h2 bg-secondary text-white text-center">商品詳細</h2>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-3 col-sm-12">
+      <div class="card">
+        <%= image_tag @item.get_image,size: "200x200", class: "card-img" %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
 
 <div>
-  <%= image_tag @item.get_image, size: '220x200' %>
   <p>商品名:<%= @item.name %></p>
   <p>商品説明:<%= @item.introduction %></p>
   <p>ジャンル:<%= @item.genre.name %></p>
-  <p>税込価格<br>(税抜価格)<%= @item.price %></p>
+  <p>税込価格<%= @item.add_tax_price.to_s(:delimited) %><br>(税抜価格)<%= @item.price.to_s(:delimited) %></p>
   <p>販売ステータス <% if @item.is_status == true %>販売中
       	<% elsif @item.is_status == false %>販売停止中
       	<% end %></p>
