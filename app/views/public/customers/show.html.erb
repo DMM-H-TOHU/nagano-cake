@@ -11,11 +11,11 @@
     <td><h5>登録情報</h5></td>
     <td><%= link_to '編集する', edit_public_customer_path(current_customer), class: 'btn btn-success btn-sm' %></td>
   </table>
-  <table border="1">
+  <table class="table", border="1">
     <tbody>
       <tr>
-        <td width="240">氏名</td>
-        <td width="480"><%= @customer.familly_name %><%= @customer.first_name %></td>
+        <td>氏名</td>
+        <td width="70%"><%= @customer.familly_name %><%= @customer.first_name %></td>
       </tr>
 
       <tr>
