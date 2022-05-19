@@ -1,51 +1,79 @@
 <div class="container">
   <div class="row">
-      <div class="col offset-1">
-        <h2 class="head-line title_h2">商品新規登録</h2>
-        <!-- ここからエラー文 -->
+      <div class="col">
+        <h2 class="col-3 head-line title_h2 bg-secondary text-white text-center">商品新規登録</h2>
+      </div>
+  </div>
+
+  <div class="row pt-5">
+    <div class="col offset-3">
+       <!-- ここからエラー文 -->
         <% if @item.errors.any? %>
-          <%= @item.errors.count %>件のエラーが発生しました!!!
+          <%= @item.errors.count %>件のエラーが発生しました!
           <ul>
             <% @item.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <% end %>
           </ul>
         <% end %>
-      </div>
-  </div>
-  <div class="row">
-    <div class="col offset-3">
       <!--ここから登録画面-->
       <%= form_with model: @item, url:'/admin/items', method: :post, class: "form-horizontal"  do |f| %>
-      <div>
+      <div class="row pb-3">
+        <div class="col-2">
           <%= f.label :商品画像 %>
+        </div>
+        <div class="col-6" %>
           <%= f.file_field :image, class: "image", accept: 'image/*' %>
+        </div>
       </div>
-      <div>
-        <%= f.label :商品名 %>
-        <%= f.text_field :name %>
+      <div></div>
+      <div class="row pb-3">
+        <div class="col-2">
+          <%= f.label :商品名 %>
+        </div>
+        <div class="col-6">
+          <%= f.text_field :name %>
+        </div>
       </div>
-      <div>
-        <%=f.label :商品説明 %>
-        <%= f.text_area :introduction %>
+      <div class="row pb-3">
+        <div class="col-2">
+          <%=f.label :商品説明 %>
+        </div>
+        <div class="col-6">
+          <%= f.text_area :introduction, class: 'form-control',size: "10x5"%>
+        </div>
       </div>
-      <div>
-        <%= f.label :ジャンル %>
-        <%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %>
+      <div class="row pb-3">
+        <div class="col-2">
+          <%= f.label :ジャンル %>
+        </div>
+        <div class="col-6">
+          <%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %>
+        </div>
       </div>
-      <div>
-        <%= f.label :税抜価格 %>
+      <div class="row pb-3">
+        <div class="col-2">
+          <%= f.label :税抜価格 %>
+        </div>
+        <div class="col-6">
          <%= f.text_field :price %>
+        </div>
       </div>
-      <div>
-        <%= f.label :販売ステータス %>
-        <%= f.radio_button :is_status, :true %>
-        <%= f.label :is_status, "販売中" %>
-        <%= f.radio_button :is_status, :false %>
-        <%= f.label :is_status, "販売停止中" %>
+      <div class="row pb-3">
+        <div class="col-3">
+          <%= f.label :販売ステータス %>
+        </div>
+        <div class="col-6">
+          <%= f.radio_button :is_status, :true %>
+          <%= f.label :is_status, "販売中" %>
+          <%= f.radio_button :is_status, :false %>
+          <%= f.label :is_status, "販売停止中" %>
+        </div>
       </div>
-      <div>
-        <%= f.submit "新規登録" %>
+      <div class="row">
+      <div class="offset-3">
+        <%= f.submit "  新規登録  ", class: 'btn btn-success btn-lg' %>
+      </div>
       </div>
       <% end %>
     </div>
