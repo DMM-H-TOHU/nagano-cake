@@ -5,28 +5,30 @@
 <%= form_with model: @genre, url: 'genres' do |f| %>
 
 　　<div class="center-block">
+
 　　  <div class="row">
-        <div>ジャンル名</div>
-          <%= f.text_field :name %>
-          <%= f.submit '新規登録', class: 'button_custom btn btn-primary center-block' %>
+        <div class="col-2">ジャンル名</div>
+        <div class="col-3"><%= f.text_field :name %></div>
+        <div class="col-3"><%= f.submit '新規登録', class: 'btn btn-success btn-ml' %></div>
+        </div>
       </div>
-    </div>
 <% end %>
 
-　　　<div class="col-md-4">
+　　　<div class="col-md-6">
       <table class="table table-condensed">
+        <thead class="thead-light">
         <tr>
           <th>ジャンル</th>
           <th></th>
         </tr>
+        </thead>
     <% @genres.each do |genre| %>
         <tr>
             <td><%= genre.name %></td>
-            <td><%= link_to edit_admin_genre_path(genre.id) do %>
-             編集する<%end%></td>
+            <td><%= link_to edit_admin_genre_path(genre.id), class: 'btn btn-success btn-sm' do %>編集する<%end%></td>
         </tr>
     <% end %>
       </table>
     　</div>
-</div>
+    </div>
 </div>
