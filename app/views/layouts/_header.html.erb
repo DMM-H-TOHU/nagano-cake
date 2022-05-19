@@ -1,7 +1,12 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="/"><span>NaganoCake</span></a>
+      <a class="navbar-brand" href="/"><%= image_tag('logo.png') %></a>
+
+        <span class="navbar-text">
+          <% if customer_signed_in? %> ようこそ<%= current_customer.familly_name %>さん <% elsif admin_signed_in? %> 管理者 <% else %> いらっしゃいませ <% end %>
+        </span>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -9,44 +14,74 @@
         <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
           <li>
-            <%= link_to '#',class: 'nav-link text-light' do %>
-              <i class="fas fa-home"></i> home
+            <%= link_to '/customers/my_page',class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-info">マイページ</button>
             <% end %>
           </li>
           <li>
-            <%=  link_to '#',class: 'nav-link text-light' do %>
-              <i class="fas fa-users"></i> users
+            <%=  link_to public_items_path,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-info">商品一覧</button>
             <% end %>
           </li>
           <li>
-            <%=  link_to '#',class: 'nav-link text-light' do %>
-              <i class="fas fa-book-open"></i> books
+            <%=  link_to public_cart_items_path,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-info">カート</button>
             <% end %>
           </li>
           <li>
-            <%= link_to '#', method: :delete,class: 'nav-link text-light' do %>
-              <i class="fas fa-sign-out-alt"></i> logout
+
+            <%= link_to  '/customers/sign_out', method: :delete,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-info">ログアウト</button>
             <% end %>
           </li>
+
+        <% elsif admin_signed_in? %>
+           <li>
+            <%= link_to admin_items_path,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-info">商品一覧</button>
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to admin_customers_path,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-info">会員一覧</button>
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to admin_path,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-info">注文履歴一覧</button>
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to admin_genres_path,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-info">ジャンル一覧</button>
+            <% end %>
+          </li>
+          <li>
+
+            <%= link_to  '/admin/sign_out', method: :delete,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-info">ログアウト</button>
+            <% end %>
+          </li>
+
         <% else %>
           <li>
-            <%= link_to'#',class: 'nav-link text-light' do %>
-              <i class="fas fa-home"></i> home
+            <%= link_to'/about',class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-info">About</button>
             <% end %>
           </li>
           <li>
-            <%= link_to '#',class: 'nav-link text-light' do %>
-              <i class="fas fa-link"></i> about
+            <%= link_to 'items',class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-info">商品一覧</button>
             <% end %>
           </li>
           <li>
-            <%= link_to '#',class: 'nav-link text-light' do %>
-              <i class="fas fa-user-plus"></i> sign up
+            <%= link_to '/customers/sign_up',class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-info">新規登録</button>
             <% end %>
           </li>
           <li>
-            <%= link_to '#' ,class: 'nav-link text-light' do %>
-              <i class="fas fa-sign-in-alt"></i> login
+            <%= link_to '/customers/sign_in',class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-info">ログイン</button>
             <% end %>
           </li>
         <% end %>
