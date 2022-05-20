@@ -12,18 +12,24 @@ end
 
 def edit
   @customer = Customer.find(params[:id])
+  @customers = Customer.all
 end
 
 def update
   @customer = Customer.find(params[:id])
-  @customer.update(customer_params)
-  redirect_to admin_customers_path
+  if @customer.update(customer_params)
+    redirect_to admin_customers_path
+  else
+    @customers = Customer.all
+    render "edit"
+  end
 end
+
 
 
   def customer_params
     params.require(:customer).permit(:familly_name, :first_name, :familly_name_kana, :first_name_kana,
-    :zipcode, :address, :telephone_number, :email)
+    :zipcode, :address, :telephone_number, :email, :is_deleted)
   end
 
 end
