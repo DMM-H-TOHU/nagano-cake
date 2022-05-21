@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+      <div class="col">
+        <h2 class="col-3 head-line title_h2 bg-secondary text-white text-center">注文情報入力</h2>
+      </div>
+  </div>
+
+<%= form_with model: @order, url:'public_orders_confirm_path', method: :post, class: "form-horizontal", local: true do |f| %>
+  <p class="h4 text-black"><strong>販売中</strong></p>
+  <!-- enum -->
+  <div>
+    <%= f.radio_button :payment_method, "クレジットカード" %>
+    <%= f.label :payment_method, "クレジットカード" %><br>
+    <%= f.radio_button :payment_method, "銀行振込" %>
+    <%= f.label :payment_method, "銀行振込" %>
+  </div>
+
+  <p class="h4 text-black"><strong>お届け先</strong></p>
+    <%= f.radio_button :customer_id, "true" %>
+    <%= f.label :customer_id, @customer %><br>
+    <%= f.radio_button :zipcode, "true" %>
+
+
+<% end %>
