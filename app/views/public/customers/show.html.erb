@@ -44,7 +44,9 @@
   <table>
     <tr>
       <td>配送先</td>
-      <td><button type="button" class="btn btn-primary btn-sm">一覧を見る</button></td>
+      <td>
+        <%= link_to '一覧を見る', public_send_addresses_path, class:"btn btn-primary btn-sm" %>
+      </td>
     </tr>
     <tr>
       <td>注文履歴</td>
