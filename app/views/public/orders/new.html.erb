@@ -5,20 +5,47 @@
       </div>
   </div>
 
-<%= form_with model: @order, url:'public_orders_confirm_path', method: :post, class: "form-horizontal", local: true do |f| %>
+<%= form_with model: @order, url: public_orders_confirm_path, method: :post, class: "form-horizontal", local: true do |f| %>
   <p class="h4 text-black"><strong>販売中</strong></p>
   <!-- enum -->
   <div>
-    <%= f.radio_button :payment_method, "クレジットカード" %>
+    <%= f.radio_button :payment_method, 0 , checked: true %>
     <%= f.label :payment_method, "クレジットカード" %><br>
-    <%= f.radio_button :payment_method, "銀行振込" %>
+    <%= f.radio_button :payment_method, 1 , checked: false %>
     <%= f.label :payment_method, "銀行振込" %>
   </div>
 
   <p class="h4 text-black"><strong>お届け先</strong></p>
-    <%= f.radio_button :customer_id, "true" %>
-    <%= f.label :customer_id, @customer %><br>
-    <%= f.radio_button :zipcode, "true" %>
+    <%= f.radio_button :address, @customer.customer_delivery, checked: true %>
+    <%= f.label :address, "ご自身の住所" %><br>
+    〒<%= @customer.zipcode %>
+    <%= @customer.address %><br>
+    <%= @customer.familly_name %><%= @customer.first_name %><br>
+    <%= f.radio_button :address, :full_deliveries, checked: false %>
+    <%= f.label :address, "登録済み住所から選択" %><br>
+    <%= f.collection_select(:address, @send_addresses, :address, :full_deliveries, prompt: "-- 選択してください --") %><br>
+    <%= f.radio_button :address,3, checked: false %>
+    <%= f.label :address, "新しいお届け先"%><br>
+    <%= f.label :zipcode, "郵便番号(ハイフンなし)", class: "col-3 col-form-label text-center" %>
+    <div class="row mb-3 field ml-5 mr-5">
+      <div class="col-8">
+        <%= f.text_field :zipcode, class: "form-control" %>
+      </div>
+    </div>
 
+    <div class="row mb-3 field ml-5 mr-5">
+      <%= f.label :address, "住所", class: "col-3 col-form-label text-center" %>
+      <div class="col-8">
+        <%= f.text_field :address, class: "form-control" %>
+      </div>
+    </div>
 
+    <div class="row mb-3 field ml-5 mr-5">
+      <%= f.label :name, "宛名", class: "col-3 col-form-label text-center" %>
+      <div class="col-8">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <%= @customer.customer_delivery %>
+    <%= f.submit "確認画面に進む" %>
 <% end %>
