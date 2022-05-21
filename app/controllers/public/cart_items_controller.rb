@@ -35,8 +35,9 @@ class Public::CartItemsController < ApplicationController
       render 'index'
   end
 
-  def all_destroy
-    cart_items = CartItem.all_cart_items.destroy_all
+  def destroy_all
+    cart_items = CartItem.all
+    cart_items.destroy_all
     render 'index'
   end
 
