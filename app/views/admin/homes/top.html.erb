@@ -1,7 +1,11 @@
-<h4>注文履歴一覧</h4>
+<div class="row">
+  <div class="offset-2">
+    <h4>注文履歴一覧</h4>
+  </div>
+</div>
 
-<div class="col-md-8">
-  <div class="mx-auto">
+<div class="row">
+  <div class="col-lg-8 offset-2 mt-3">
     <table class="table">
       <thead class="table-secondary">
         <tr>
@@ -11,10 +15,24 @@
           <th>注文ステータス</th>
         </tr>
       </thead>
+
+
+      <tbody>
+
+         <% @order_sorts.each do |order_sort| %>
+        <tr>
+          <td><%= order_sort.customer.id%></td>
+          <td><%= order_sort.order_details.amount%></td>
+          <td><%= order_sort.created_at%></td>
+          <td><%= order_sort.order_statu%></td>
+        </tr>
+        <%end%>
+      </tbody>
+
     </table>
   </div>
 </div>
-<h6>pagenation</h6>
+
 
 
 

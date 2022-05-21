@@ -1,8 +1,9 @@
 class Admin::HomesController < ApplicationController
-  
+
   def top
-    # @histories = History.all.page(params[:page]).per(10)
     @order = Order.all
+    @order_details = OrderDetail.all
+    @order_sorts = Order.all.order(created_at: :desc)
   end
-  
+
 end

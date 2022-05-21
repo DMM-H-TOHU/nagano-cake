@@ -1,64 +1,63 @@
 <div class="row">
-<div class="offset-1">
-<h4><%= @customer.familly_name %><%= @customer.first_name %>さんの会員詳細</h4>
-</div>
-</div>
-
-<table>
-  <div class="row">
-    <div class="offset-2">
-    <tr>
-      <td>会員ID</td>
-        <td><%= @customer.id %></td>
-    </tr>
-    </div>
+  <div class="offset-1">
+    <h4><%= @customer.familly_name %><%= @customer.first_name %>さんの会員詳細</h4>
   </div>
+</div>
 
-    <tr>
-      <td>氏名</td>
-      <td><%= @customer.familly_name %><%= @customer.first_name %></td>
-    </tr>
+<div class='container'>
+<table class="table table-borderless">
 
-    <tr>
-      <td>フリガナ</td>
-      <td><%= @customer.familly_name_kana %><%= @customer.first_name_kana %></td>
-    </tr>
+    <div class="mt-5"></div>
 
-    <tr>
-      <td>郵便番号</td>
-      <td><%= @customer.zipcode %></td>
-    </tr>
+      <tr>
+        <td width="20%">会員ID</td>
+          <td><%= @customer.id %></td>
+      </tr>
 
-    <tr>
-      <td>住所</td>
-      <td><%= @customer.address %></td>
-    </tr>
+      <tr>
+        <td>氏名</td>
+        <td><%= @customer.familly_name %><%= @customer.first_name %></td>
+      </tr>
 
-    <tr>
-      <td>電話番号</td>
-      <td><%= @customer.telephone_number %></td>
-    </tr>
+      <tr>
+        <td>フリガナ</td>
+        <td><%= @customer.familly_name_kana %><%= @customer.first_name_kana %></td>
+      </tr>
 
-    <tr><td>メールアドレス</td>
+      <tr>
+        <td>郵便番号</td>
+        <td><%= @customer.zipcode %></td>
+      </tr>
+
+      <tr>
+        <td>住所</td>
+        <td><%= @customer.address %></td>
+      </tr>
+
+      <tr>
+        <td>電話番号</td>
+        <td><%= @customer.telephone_number %></td>
+      </tr>
+
+      <tr>
+        <td>メールアドレス</td>
         <td><%= @customer.email %></td>
-    </tr>
+      </tr>
 
-    <tr>
-      <td>会員ステータス</td>
-      <td><% if @customer.is_deleted == true %>退会済み
-          <%else%>有効
-          <%end%>
-      </td>
-    </tr>
-
+      <tr>
+        <td>会員ステータス</td>
+        <td><% if @customer.is_deleted == true %><p class="text-secondary"><strong>退会済み</strong></p>
+            <%else%> <p class="text-success"> <strong>有効</strong></p>
+            <%end%>
+        </td>
+      </tr>
+</table>
+</div>
+<div class="row">
+  <div class="offset-3">
+    <div class="col-12 mx-4">
+    <%=link_to "編集する", edit_admin_customer_path(@customer), class: 'btn btn-success' %>
+    <%=link_to "注文履歴一覧を見る", admin_customers_path(@customers), class: 'btn btn-primary' %>
     </div>
   </div>
-</table>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<%=link_to "編集する", edit_admin_customer_path(@customer), class"text-secondary" %>
-<%=link_to "注文履歴一覧を見る", admin_customers_path(@customers) %>
+  </div>
