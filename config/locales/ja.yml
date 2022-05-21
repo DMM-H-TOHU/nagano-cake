@@ -29,3 +29,8 @@ ja:
         zipcode: 郵便番号
         address: 住所
         name: 宛名
+  enums:
+    order:
+      payment_method:
+        credit_card: "クレジットカード"
+        transfer: "銀行振込"

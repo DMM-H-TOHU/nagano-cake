@@ -21,4 +21,9 @@ class Customer < ApplicationRecord
   def active_for_authentication?
     super && (is_deleted == false)
   end
+
+  def customer_delivery
+    "〒" + self.zipcode + " " + self.address + " " + self.familly_name + " " + self.first_name
+  end
+
 end
