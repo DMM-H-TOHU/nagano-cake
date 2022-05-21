@@ -15,21 +15,20 @@
           <th>注文ステータス</th>
         </tr>
       </thead>
-      
-      
+
+
       <tbody>
-        <% @history.each do |history| %>
-        <% if history.class == "Order" %> 
+
+         <% @order_sorts.each do |order_sort| %>
         <tr>
-          <td><%= history.customer.id%></td>
-          <td><%= history.amount%></td>
-          <%else%>
-          <td><%= history.created_at%></td>
-          <td><%= history.order_statu%></td>
+          <td><%= order_sort.customer.id%></td>
+          <td><%= order_sort.order_details.amount%></td>
+          <td><%= order_sort.created_at%></td>
+          <td><%= order_sort.order_statu%></td>
         </tr>
-          <%end%>
         <%end%>
       </tbody>
+
     </table>
   </div>
 </div>
