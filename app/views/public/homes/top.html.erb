@@ -44,7 +44,7 @@
     <% @items.each do |item| %>
       <div class="col">
         <div class ="card h-100">
-          <%= image_tag item.get_image, size: "150x150", class: "card-img-top" %>
+          <%= link_to public_item_path(item) do %><%= image_tag item.get_image, size: "150x150", class: "card-img-top" %><% end %>
           <div class="card-body">
             <h6 class="card-title"><%= item.name %></h6>
             <p class="card-text">¥<%= item.add_tax_price.to_s(:delimited) %></p>
