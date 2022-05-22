@@ -48,7 +48,7 @@
           <div class="card-body">
             <h6 class="card-title"><%= item.name %></h6>
             <p class="card-text">¥<%= item.add_tax_price.to_s(:delimited) %></p>
-            <%= link_to public_item_path(item) do %> <button type="button" class="btn btn-primary">詳細ページへ</button><% end %>
+            <%= link_to public_item_path(item.id) do %> <button type="button" class="btn btn-primary">詳細ページへ</button><% end %>
           </div>
         </div>
       </div>
