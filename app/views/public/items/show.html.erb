@@ -13,15 +13,22 @@
 
     <div class="col-4">
       <div class="card">
-        <%= image_tag @item.get_image, class:"card-img" %><%#商品画像%>
+        <%= image_tag @item.get_image, class:"card-img", size: "250x250" %><%#商品画像%>
       </div>
     </div>
     <div class="col-6">
-      <p><%= @item.name %></p><%#商品名%>
+      <p>
+        <font size="5"><%= @item.name %></font>
+      </p><%#商品名%>
       <p><%= @item.introduction %></p><%#商品説明%>
-      <p>¥<%= @item.add_tax_price.to_s(:delimited) %></p><%#商品価格%>
+      <p><font size="5">¥<%= @item.add_tax_price.to_s(:delimited) %></font></p><%#商品価格%>
 
       <!--カートに入れるボタンをここに-->
+
+    </div>
+  </div>
+  <div class="row text-right">
+    <div class="col-12">
       <% if @item.is_status == TRUE %> <%#商品販売中の場合%>
         <%= form_with(model: @cart_item, url: public_cart_items_path, method: :post, local: true)do |f| %>
           <%= f.label :amount, "個数選択" %>

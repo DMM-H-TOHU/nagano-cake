@@ -16,28 +16,36 @@
       <table>
         <td><h2>商品一覧</h2></td><td><p>(全<%= @items.count %>件)</p></td>
       </table>
-    </div>
-  </div>
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <% @items.each do |item| %>
+        <div class="col">
+          <div class="card h-100">
+            <%= link_to public_item_path(item.id) do %>
+              <%= image_tag item.get_image, class: "card-img-top", size: "150x150" %>
+            <% end %>
 
-  <div class="row row-cols-1 row-cols-md-4 g-4 offset-2">
-    <% @items.each do |item| %>
-    <div class="col">
-      <div class="card h-100">
-        <%= link_to public_item_path(item.id) do %>
-          <%= image_tag item.get_image, class: "card-img-top" %>
-        <% end %>
-
-        <div class="card-body">
-          <h5 class="card-title"><%= item.name %></h5>
-          <p class="card-text"><%= item.add_tax_price.to_s(:delimited) %>円</p>
+            <div class="card-body">
+              <h6 class="card-title"><%= item.name %></h6>
+              <p class="card-text"><%= item.add_tax_price.to_s(:delimited) %>円</p>
+            </div>
+          </div>
         </div>
+        <% end %>
       </div>
     </div>
-    <% end %>
   </div>
+  <div class="row">
+    <div class="offset-5">
+      <div class="text-center"><%= paginate @items %></div>
+    </div>
+  </div>
+
+
 
 </div>
 
 
 
-<%= paginate @items %>
+
+
+
