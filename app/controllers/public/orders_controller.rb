@@ -54,7 +54,7 @@ class Public::OrdersController < ApplicationController
     if params[:order][:address_number] == "1"
   # viewで定義しているaddress_number1が"1"だった時にこの処理を実行
   # form_withで@orderで送っているので、orderに紐づいたaddress_numberとなる。以下同様
-      @order.name = @customer.familly_name #@orderの各カラムに必要なものを入れる
+      @order.name = @customer.full_name #@orderの各カラムに必要なものを入れる
       @order.address = @customer.address
     elsif params[:order][:address_number] == "2"
   # viewで定義しているaddress_numberが"2"だった時にこの処理を実行する
