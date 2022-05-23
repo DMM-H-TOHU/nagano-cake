@@ -1,1 +1,36 @@
-<h1>index</h1>
+<div class="container-fluid">
+  <div class="col-8 mx-auto">
+    <div class="my-3 ml-5"><h3>注文履歴一覧</h3></div>
+    <div>
+      <table class="table">
+        <thead>
+          <th>注文日</th>
+          <th>配送先</th>
+          <th>注文商品</th>
+          <th>支払金額</th>
+          <th>ステータス</th>
+          <th>注文詳細</th>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+            <td><%= order.zipcode %><br><%= order.address %><br><%= order.name %></td>
+            <% order_details = order.order_detail %>
+            <td><% order_details.each_with_index do |order_detail,i| %>
+                <%= order_detail.item.name %><br>
+                <% if i == order_details.length - 1 %>
+                <%= order_detail.item.name %>
+                <% end %>
+                <% end %>
+            </td>
+            <td><%= order.total_price.to_s(:delimited) %></td>
+            <td><%= order.order_status %></td>
+            <td class="text-center"><%= link_to public_order_path(order), "表示する", class: "btn btn-primary" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
