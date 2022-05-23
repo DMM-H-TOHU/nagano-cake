@@ -5,6 +5,7 @@ class Public::ItemsController < ApplicationController
     @items = Item.page(params[:page])
     @genres = Genre.all
     @cart_item = CartItem
+    @count = Item.all
   end
 
   def show

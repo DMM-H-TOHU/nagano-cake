@@ -1,1 +1,23 @@
-<h1>confirm</h1>
+<h2>注文確認画面</h2>]
+<% @cart_items.each do |cart| %>
+    <%= image_tag cart.item.get_image, size: "60x50" %>
+    <%= cart.item.name %>
+    <%= (cart.item.price).to_s(:delimited) %>
+    <%= cart.amount %>
+    <% subtotal = cart.amount.to_i * cart.item.add_tax_price.to_i %>
+    <%= subtotal.to_s(:delimited) %>
+    <% total = subtotal.to_i + 800 %>
+<% end %>
+<!--<p>送料</p>-->
+<!--<#%= 800 %>-->
+<!--<p>商品合計</p>-->
+<!--<#% goukei= total - 800 %>-->
+<!--<p>ご請求金額</p>-->
+<!--<#% total %>-->
+
+<%= form_with model: @order, url: public_orders_path, method: :post, local: true do |f| %>
+    <% f.hidden_field :name %>
+    <% f.hidden_field :address %>
+    <% f.hidden_field :total_price %>
+    <%= f.submit "注文を確定する" %>
+<% end %>
