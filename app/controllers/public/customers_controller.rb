@@ -11,6 +11,7 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     @customer.update(customer_params)
+    flash[:notice] = "会員情報編集処理を実行しました"
     redirect_to public_customers_my_page_path
   end
 

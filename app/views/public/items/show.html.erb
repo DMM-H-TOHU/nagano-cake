@@ -16,7 +16,7 @@
         <%= image_tag @item.get_image, class:"card-img", size: "250x250" %><%#商品画像%>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-5">
       <p>
         <font size="5"><%= @item.name %></font>
       </p><%#商品名%>
@@ -28,7 +28,7 @@
     </div>
   </div>
   <div class="row text-right">
-    <div class="col-12">
+    <div class="col-11">
       <% if @item.is_status == TRUE %> <%#商品販売中の場合%>
         <%= form_with(model: @cart_item, url: public_cart_items_path, method: :post, local: true)do |f| %>
           <%= f.label :amount, "個数選択" %>
