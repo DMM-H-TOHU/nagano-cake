@@ -38,21 +38,21 @@
     <div class="row mb-3 field ml-3 mr-5">
       <%= f.label :zipcode, "郵便番号(ハイフンなし)", class: "col-3 col-form-label" %>
       <div class="col-8">
-        <%= f.text_field :zipcode, class: "form-control", style: "width: 40%" %>
+        <%= f.text_field :zipcode, class: "form-control", style: "width: 40%", :placeholder => "0000000" %>
       </div>
     </div>
 
     <div class="row mb-3 field ml-3 mr-5">
       <%= f.label :address, "住所", class: "col-3 col-form-label" %>
       <div class="col-8">
-        <%= f.text_field :address, class: "form-control", style: "width: 80%" %><br>
+        <%= f.text_field :address, class: "form-control", style: "width: 80%", :placeholder => "東京都渋谷区代々木神園町0-0" %>
       </div>
     </div>
 
     <div class="row mb-3 field ml-3 mr-5">
       <%= f.label :name, "宛名", class: "col-3 col-form-label" %>
       <div class="col-8">
-        <%= f.text_field :name, class: "form-control", style: "width: 40%" %>
+        <%= f.text_field :name, class: "form-control", style: "width: 40%", :placeholder => "令和昭子" %>
       </div>
     </div>
 
