@@ -10,6 +10,7 @@ class Public::OrdersController < ApplicationController
     # ログインユーザーのカートアイテムを全て取り出してcart_itemsにいれる
     @order = current_customer.orders.new(order_params)
     # わたってきた値を@orderに入れる
+    @orders = Order.all
     if @order.save
     # ここに至るまでの間に確認(confirm)は済ませているが、念のためif文で分岐
       cart_items.each do |cart|
