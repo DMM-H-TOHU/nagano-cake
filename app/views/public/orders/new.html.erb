@@ -9,9 +9,9 @@
   <p class="h4 text-black"><strong>販売中</strong></p>
   <!-- enum -->
   <div>
-    <%= f.radio_button :payment_method, 0 , checked: true %>
+    <%= f.radio_button :payment_method, "credit_card" , checked: true %>
     <%= f.label :payment_method, "クレジットカード" %><br>
-    <%= f.radio_button :payment_method, 1 , checked: false %>
+    <%= f.radio_button :payment_method, "transfer" %>
     <%= f.label :payment_method, "銀行振込" %>
   </div>
 

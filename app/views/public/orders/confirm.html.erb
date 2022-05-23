@@ -1,4 +1,5 @@
 <h2>注文確認画面</h2>]
+<% total = 0 %>
 <% @cart_items.each do |cart| %>
     <%= image_tag cart.item.get_image, size: "60x50" %>
     <%= cart.item.name %>
@@ -6,19 +7,16 @@
     <%= cart.amount %>
     <% subtotal = cart.amount.to_i * cart.item.add_tax_price.to_i %>
     <%= subtotal.to_s(:delimited) %>
-    <% total = subtotal.to_i + 800 %>
+    <% total += subtotal.to_i %>
 <% end %>
-
-
-
 
         <p>配送料</p>
     <%= @order.postage %>
         <p>商品合計</p>
-    <%= @order.total_price - order.postage %>
+    <%= total %>
 
     <p>ご請求額</p>
-    <p><%= @order.total_price %></p>
+    <p><%= total + @order.postage %></p>
 
 
 
