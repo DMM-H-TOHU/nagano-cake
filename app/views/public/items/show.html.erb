@@ -1,11 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-2">
-      <table class="table text-center">
+     <table class="table text-center">
         <thead class="table-light"><th>ジャンル検索</th></thead>
+        <tr>
+            <td><%= link_to public_items_path do %>すべての商品<% end %></td>
+          </tr>
         <% @genres.each do |genre| %>
           <tr>
-            <td><%= genre.name %></td>
+            <td><%= link_to "/items?genre_id=#{genre.id}" do %><%= genre.name %><% end %></td>
           </tr>
         <% end %>
       </table>
