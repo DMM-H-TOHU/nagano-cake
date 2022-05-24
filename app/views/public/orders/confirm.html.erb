@@ -90,7 +90,7 @@
         <%= f.hidden_field :name, :value => @order.name %>
         <%= f.hidden_field :zipcode, :value => @order.zipcode %>
         <%= f.hidden_field :address, :value => @order.address %>
-        <%= f.hidden_field :payment_method => @order.payment_method %>
+        <%= f.hidden_field :payment_method, :value => @order.payment_method %>
         <%= f.hidden_field :total_price => total %>
         <%= f.hidden_field :postage => @order.postage %>
 
