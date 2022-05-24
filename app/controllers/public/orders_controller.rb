@@ -41,7 +41,6 @@ class Public::OrdersController < ApplicationController
       @order = Order.new(order_params)
       render :new
     end
-    # binding.pry
   end
 
   def index

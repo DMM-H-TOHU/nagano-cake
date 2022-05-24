@@ -37,7 +37,7 @@
 　　　　　　<%= form_with(model: @order local: true) do |f| %>
       <tr>
         <td style="font-size : 20px; width="20%""><strong><%= f.label :order_status, "注文ステータス" %></strong></td>
-        <td><%= f.select :order_status, {'入金待ち': 1, '入金確認': 2, '制作中':3, '発送準備中':4, '発送済み':5} %>
+        <td><%= f.select :order_status, {'入金待ち': waiting, '入金確認': confirm, '制作中': making, '発送準備中': preparing, '発送済み': sent} %>
             <%= f.submit "更新", class: "btn btn-success" %></td>
       </tr>
             <% end %>
