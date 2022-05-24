@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_path
     when Customer
-      public_customers_my_page_path
+      public_path
     end
   end
   # end
@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   end
   #   root_path
   # end
+
 
   protected
 
