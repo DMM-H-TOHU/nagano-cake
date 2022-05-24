@@ -6,6 +6,6 @@ class SendAddress < ApplicationRecord
   validates :zipcode, length: {is: 7}, numericality: { only_integer: true }
 
   def full_deliveries
-    self.zipcode + " " + self.address + " " + self.name
+    "〒" + self.zipcode + " " + self.address + " " + self.name
   end
 end
