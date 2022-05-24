@@ -29,7 +29,7 @@
     <%= f.radio_button :address_number, 2 %>
     <%= f.label :address_number_2, "登録済の住所から選択" %>
     <div class="row mb-3 field ml-3 mr-5">
-      <%= f.collection_select(:address, @send_addresses, :id, :address, prompt: "--選択してください--") %>
+      <%= f.collection_select(:address_id, @send_addresses, :id, :address, prompt: "--選択してください--") %>
     </div>
 
     <%= f.radio_button :address_number, 3 %>
