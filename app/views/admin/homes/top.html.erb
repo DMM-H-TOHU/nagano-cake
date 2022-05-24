@@ -19,12 +19,17 @@
 
       <tbody>
 
-         <% @order_sorts.each do |order_sort| %>
+         <% @orders.each do |order| %>
         <tr>
-          <td><%= order_sort.customer.id%></td>
-          <td><%= order_sort.order_details.amount%></td>
-          <td><%= order_sort.created_at%></td>
-          <td><%= order_sort.order_statu%></td>
+          <td><%= link_to admin_order_path(order) do %><%= order.created_at.strftime('%Y/%m/%d %H:%M') %><% end %></td>
+          <td><%= order.customer.familly_name %> <%= order.customer.first_name %></td>
+          <% order_details = order.order_details %>
+          <% amount = 0 %>
+          <% order_details.each do |order_detail| %>
+          <% amount += order_detail.amount %>
+          <% end %>
+          <td><%= amount %></td>
+          <td><%= order.order_status_i18n %></td>
         </tr>
         <%end%>
       </tbody>
