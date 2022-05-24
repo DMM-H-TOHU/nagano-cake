@@ -40,4 +40,10 @@ ja:
         maiking: "製作中"
         preparing: "発送準備中"
         sent: "発送済み"
-      
+    order_detail:
+      making_status:
+        unavailable: "着手不可"
+        waiting: "製作待ち"
+        making: "製作中"
+        complete: "製作完了"
+
