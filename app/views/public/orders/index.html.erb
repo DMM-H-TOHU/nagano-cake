@@ -16,7 +16,7 @@
           <tr>
             <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
             <td><%= order.zipcode %><br><%= order.address %><br><%= order.name %></td>
-            <% order_details = order.order_detail %>
+            <% order_details = order.order_details %>
             <td><% order_details.each_with_index do |order_detail,i| %>
                 <%= order_detail.item.name %><br>
                 <% if i == order_details.length - 1 %>
@@ -26,7 +26,7 @@
             </td>
             <td><%= order.total_price.to_s(:delimited) %></td>
             <td><%= order.order_status %></td>
-            <td class="text-center"><%= link_to public_order_path(order), "表示する", class: "btn btn-primary" %></td>
+            <td class="text-center"><%= link_to "表示する", public_order_path(order),  class: "btn btn-primary" %></td>
           </tr>
           <% end %>
         </tbody>
