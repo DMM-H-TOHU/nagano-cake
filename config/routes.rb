@@ -13,6 +13,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
+
+
  namespace :admin do
     get '/' => 'homes#top'
     patch '/order_details/' => 'order_details#update'
