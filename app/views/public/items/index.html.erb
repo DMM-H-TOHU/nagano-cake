@@ -17,7 +17,7 @@
 
     <div class="col-10">
       <table>
-        <td><h2><% if @genre.presence %><%= @genre.name %><% else %>商品一覧<% end %></h2></td><td><p>(全<%= @items.count %>件)</p></td>
+        <td><h2><% if @genre.presence %><%= @genre.name %><% else %>商品一覧<% end %></h2></td><td><p>(全<%= @count %>件)</p></td>
       </table>
       <div class="row row-cols-1 row-cols-md-4 g-4">
         <% @items.each do |item| %>
