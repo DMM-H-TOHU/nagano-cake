@@ -26,6 +26,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 # get '/customers/is_deleted' => 'public/customers#is_deleted'
 namespace :public, path: "" do
+  get "search" => "searches#search"
   get '/customers/my_page' => 'customers#show'
   get '/customers/is_deleted' => 'customers#is_deleted'
   patch '/customers/withdraw' => 'customers#withdraw'
