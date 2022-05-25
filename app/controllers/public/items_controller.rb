@@ -6,8 +6,10 @@ class Public::ItemsController < ApplicationController
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
       @items = @genre.items.page(params[:page])
+      @count = @genre.items.count
     else
       @items = Item.all.page(params[:page])
+      @count = Item.all.count
     end
   end
 
