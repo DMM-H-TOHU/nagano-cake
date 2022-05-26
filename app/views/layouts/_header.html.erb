@@ -1,0 +1,101 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(153, 204, 0, 0.3);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><%= image_tag('logo.png') %></a>
+
+        <span class="navbar-text text-secondary">
+         <strong> <% if customer_signed_in? %> ようこそ<%= current_customer.familly_name %>さん <% elsif admin_signed_in? %> 管理者 <% else %> いらっしゃいませ <% end %></strong>
+        </span>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if customer_signed_in? %>
+          <li>
+            <%= link_to '/customers/my_page',class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-success">マイページ</button>
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to public_items_path,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-success">商品一覧</button>
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to public_cart_items_path,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-success">カート</button>
+            <% end %>
+          </li>
+          <li>
+
+            <%= link_to  '/customers/sign_out', method: :delete,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-success">ログアウト</button>
+            <% end %>
+          </li>
+
+        <% elsif admin_signed_in? %>
+           <li>
+            <%= link_to admin_items_path,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-success">商品一覧</button>
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to admin_customers_path,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-success">会員一覧</button>
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to admin_path,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-success">注文履歴一覧</button>
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to admin_genres_path,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-success">ジャンル一覧</button>
+            <% end %>
+          </li>
+          <li>
+
+            <%= link_to  '/admin/sign_out', method: :delete,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-success">ログアウト</button>
+            <% end %>
+          </li>
+
+        <% else %>
+          <li>
+            <%= link_to'/about',class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-success">About</button>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to public_items_path,class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-success">商品一覧</button>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to '/customers/sign_up',class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-success">新規登録</button>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to '/customers/sign_in',class: 'nav-link text-light' do %>
+              <button type="button" class="btn btn-outline-success">ログイン</button>
+            <% end %>
+          </li>
+        <% end %>
+        </ul>
+        <!-- 検索機能 -->
+
+            <%= form_with url: public_search_path, local: true, method: :get, class: "d-flex ml-5" do |f| %>
+              <%= f.search_field :word, placeholder:"商品名で検索", class: "form-control me-2"%>
+              <%= f.submit "検索", class: "btn btn-outline-success ml-1" %>
+            <% end %>
+
+
+
+      </div>
+    </div>
+  </nav>
+</header>

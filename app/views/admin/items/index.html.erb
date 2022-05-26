@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+      <div class="col">
+        <h2 class="col-3 head-line title_h2 bg-secondary text-white text-center">商品一覧</h2>
+      </div>
+       <%= link_to new_admin_item_path do %>
+       <button type="button" class="btn btn-primary rounded-circle p-0" style="width:3rem;height:3rem;">＋</button>
+       <% end %>
+
+  </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-lg-8 offset-2">
+    <table class="table text-center">
+      <thead class="table-secondary">
+        <tr class="text-center">
+          <th width="10%">
+            商品ID
+          </th>
+          <th width="30%">
+            商品名
+          </th>
+          <th width="20%">
+            税抜価格
+          </th>
+          <th width="20%">
+            ジャンル
+          </th>
+          <th width="20%">
+            ステータス
+          </th>
+        </tr>
+      </thead>
+      <% @items.each do |item| %>
+      <tbody>
+        <tr>
+          <td>
+            <%= item.id %>
+          </td>
+          <td>
+            <%= link_to admin_item_path(item.id) do %>
+              <%= item.name %>
+            <% end %>
+          </td>
+          <td>
+            <%= item.price %>円
+          </td>
+          <td>
+            <%= item.genre.name %>
+          </td>
+          <td>
+            <% if item.is_status == true %>
+              <p class="text-success">販売中</p>
+            <% elsif item.is_status == false %>
+              <p class="text-secondary">販売停止中</p>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="offset-5">
+    <div class="text-center">
+      <%= paginate @items %>
+    </div>
+  </div>
+</div>

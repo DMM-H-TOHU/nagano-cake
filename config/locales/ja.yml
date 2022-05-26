@@ -1,0 +1,48 @@
+ja:
+  activerecord:
+    attributes:
+      send_address:
+        zipcode: 郵便番号
+        name: 宛名
+        address: 住所
+      customer:
+        email: メールアドレス
+        first_name: 名前
+        familly_name: 名字
+        first_name_kana: 名前(フリガナ)
+        familly_name_kana: 名字(フリガナ)
+        address: 住所
+        telephone_number: 電話番号
+        zipcode: 郵便番号
+        password: パスワード
+      cart_item:
+        amount: 数量
+      genre:
+        name: ジャンル名
+      item:
+        name: 商品名
+        introduction: 商品説明
+        price: 税抜価格
+        genre: ジャンル
+        genre_id: ジャンル
+      order:
+        zipcode: 郵便番号
+        address: 住所
+        name: 宛名
+  enums:
+    order:
+      payment_method:
+        credit_card: "クレジットカード"
+        transfer: "銀行振込"
+      order_status:
+        waiting: "入金待ち"
+        confirm: "入金確認"
+        making: "製作中"
+        preparing: "発送準備中"
+        sent: "発送済み"
+    order_detail:
+      making_status:
+        unavailable: "着手不可"
+        waiting: "製作待ち"
+        making: "製作中"
+        complete: "製作完了"
