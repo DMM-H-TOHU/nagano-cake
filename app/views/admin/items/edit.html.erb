@@ -17,7 +17,7 @@
           </ul>
         <% end %>
       <!--ここから登録画面-->
-      <%= form_with model: @item, url:'/admin/items', method: :post, class: "form-horizontal"  do |f| %>
+      <%= form_with model: @item, url: admin_item_path, method: :patch, class: "form-horizontal"  do |f| %>
       <div class="row pb-3">
         <div class="col-2">
           <%= f.label :商品画像 %>
