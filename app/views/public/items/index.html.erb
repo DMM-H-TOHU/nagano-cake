@@ -21,7 +21,7 @@
       </table>
       <div class="row row-cols-1 row-cols-md-4 g-4">
         <% @items.each do |item| %>
-        <div class="col">
+        <div class="col mb-2">
           <div class="card h-100">
             <%= link_to public_item_path(item.id) do %>
               <%= image_tag item.get_image, class: "card-img-top", size: "150x150" %>
